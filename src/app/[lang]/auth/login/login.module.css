@@ -1,0 +1,153 @@
+/* Login Page Container */
+.loginPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* Full screen height */
+    padding: 20px;
+    background: linear-gradient(135deg, #3d1f1f 0%, #4a2a2a 100%);
+    /* Dark background */
+}
+
+.loginContainer {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #ffd700;
+    letter-spacing: 0.025em;
+    opacity: 0.8;
+}
+
+/* Tabs */
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #E8E8E8;
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+.tabBtn {
+    flex: 1;
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    letter-spacing: 0.5px;
+    font-family: var(--font-serif);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tabBtn:hover:not(.activeTab) {
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.05);
+    transform: translateY(-2px);
+}
+
+.activeTab {
+    color: #d4af37;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* Premium Active Underline */
+.activeTab::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+    animation: slideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+        left: 50%;
+    }
+
+    to {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+/* Form Container */
+.formWrapper {
+    background: #fff;
+    padding: 40px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .loginPage {
+        min-height: auto;
+        /* Don't force full height on mobile/tablet if content is tall */
+        padding: 40px 20px;
+    }
+
+    .formWrapper {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loginPage {
+        padding: 20px 15px;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .formWrapper {
+        padding: 20px;
+    }
+
+    .tabBtn {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

@@ -1,0 +1,175 @@
+{
+  "common": {
+    "title": "LA ROCCA",
+    "description": "Premium Italian Coffee. Professional Espresso Machines. Wholesale Excellence.",
+    "nav": {
+      "home": "HOME",
+      "about": "ABOUT US",
+      "coffee": "COFFEE",
+      "catalogue": "CATALOGUE",
+      "products": "PRODUCTS",
+      "contact": "CONTACT"
+    },
+    "hero": {
+      "eyebrow": "Est. 2006",
+      "title": "LA ROCCA",
+      "subtitle": "Premium Italian Coffee. Professional Espresso Machines. Wholesale Excellence.",
+      "cta": "Shop Premium Coffee",
+      "ctaSecondary": "Explore Machines"
+    },
+    "heritage": {
+      "eyebrow": "HERITAGE & QUALITY",
+      "title": "At LA ROCCA, we bring 18 years of Italian coffee expertise directly to your business.",
+      "subheading": "We import and distribute the finest Italian and Mediterranean products.",
+      "description": "Our warehouse in Italy sources only the finest premium coffees and professional-grade espresso machines for wholesale partners worldwide.\n\nTrusted by cafes, restaurants, and businesses across North America and Europe."
+    },
+    "coffeePage": {
+      "eyebrow": "COFFEE COLLECTION",
+      "title": "Discover our curated selection of premium Italian coffee blends.",
+      "subtitle": "From single-origin espresso to specialty blends, each product is sourced directly from Italy's finest roasters and suppliers.\n\nPremium Quality. Wholesale Pricing. Reliable Supply."
+    },
+    "productsPage": {
+      "eyebrow": "COMPLETE WHOLESALE CATALOG",
+      "title": "Everything you need for your business.",
+      "subtitle": "Coffee, espresso machines, accessories, and premium Italian food products. Browse our full collection and connect with our team for custom quotes and bulk pricing."
+    },
+    "cataloguePage": {
+      "eyebrow": "WHOLESALE CATALOGUE",
+      "title": "Exclusive Wholesale Collection.",
+      "subtitle": "Browse our premium selection available for bulk ordering. Contact us for pricing and distribution details."
+    },
+    "legacyPage": {
+      "eyebrow": "Est. 2006",
+      "title": "ABOUT US",
+      "description1": "Our founder Claudio La Rocca started as an owner and chef in the 80s of various restaurants, bringing traditional meals to the tables. Now we would like to bring the products that remind you of those flavors to your favorite restaurants here in South Florida.\n\nFounded in 2006, LA ROCCA emerged from a passion for authentic Italian coffee culture. What started as a small operation has grown into a trusted wholesale supplier serving hundreds of businesses globally.",
+      "valuesTitle": "We believe in:",
+      "values": [
+        "Uncompromising Quality",
+        "Direct Italian Sourcing",
+        "Reliable Partnership",
+        "Professional Service"
+      ],
+      "description2": "Every product we offer represents our commitment to bringing genuine Italian excellence to your business."
+    },
+    "footer": {
+      "contact": "Contact Us",
+      "rights": "All rights reserved.",
+      "newsletter": "Join our newsletter for exclusive offers."
+    },
+    "products": [
+      {
+        "id": "espresso-roma",
+        "name": "Espresso Roma",
+        "price": "€24.00 / kg",
+        "description": "A full-bodied blend with notes of dark chocolate and toasted caramel. Perfect for traditional Italian espresso.",
+        "image": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "category": "coffee"
+      },
+      {
+        "id": "venezia-gold",
+        "name": "Venezia Gold",
+        "price": "€28.00 / kg",
+        "description": "Smooth and aromatic 100% Arabica blend. Delicate floral notes with a honey finish.",
+        "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "category": "coffee"
+      },
+      {
+        "id": "napoli-intenso",
+        "name": "Napoli Intenso",
+        "price": "€22.00 / kg",
+        "description": "Strong, distinctive Robusta blend. Thick crema and intense caffeine kick.",
+        "image": "https://images.unsplash.com/photo-1610632380989-680fe40816c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "category": "coffee"
+      },
+      {
+        "id": "lamarzocco-linea",
+        "name": "La Marzocco Linea PB",
+        "price": "Request Quote",
+        "description": "The industry standard for high-volume cafes. Dual boiler system with saturated groups for thermal stability.",
+        "image": "https://images.unsplash.com/photo-1520978347108-a006c09b8543?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "category": "machines"
+      },
+      {
+        "id": "rocket-r9",
+        "name": "Rocket R9 One",
+        "price": "Request Quote",
+        "description": "Pressure profiling capabilities in a commercial-grade package. Hand-built in Milan.",
+        "image": "https://images.unsplash.com/photo-1570967069399-63a29098bc53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "category": "machines"
+      }
+    ],
+    "categories": {
+      "all": "All Products",
+      "coffee": "Coffee",
+      "machines": "Machines",
+      "accessories": "Accessories",
+      "italian": "Italian Products"
+    },
+    "whyUs": {
+      "title": "Why Choose Premium Coffee",
+      "features": [
+        {
+          "title": "Artisanal Roasting",
+          "description": "Slow-roasted in small batches in Italy."
+        },
+        {
+          "title": "Direct Trade",
+          "description": "Sourced directly from sustainable farms."
+        },
+        {
+          "title": "Freshness Guaranteed",
+          "description": "Vacuum sealed immediately after roasting."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Partners Say",
+      "items": [
+        {
+          "quote": "The quality of the espresso has transformed our morning rush.",
+          "author": "Marco, Cafe Milano"
+        },
+        {
+          "quote": "Reliable delivery and exceptional taste. Highly recommended.",
+          "author": "Sarah, The Grind"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "Do you offer bulk discounts?",
+          "a": "Yes, we offer tiered pricing for wholesale orders."
+        },
+        {
+          "q": "What is the shelf life?",
+          "a": "Our coffee stays fresh for 18 months in sealed packaging."
+        }
+      ]
+    },
+    "inquire": {
+      "title": "Get in Touch",
+      "form": {
+        "fullName": "Full Name",
+        "companyName": "Company Name (Optional)",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "type": "Inquiry Type",
+        "types": {
+          "wholesale": "Wholesale Quote",
+          "product": "Product Question",
+          "general": "General Inquiry"
+        },
+        "message": "Message",
+        "submit": "Submit Inquiry"
+      },
+      "info": {
+        "wholesaleTitle": "Wholesale inquiries",
+        "wholesaleText": "We respond within 24 hours.",
+        "email": "info@larocc.com",
+        "phone": "+39 02 1234 5678"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-surface);
+    /* Dark surface, not solid gold */
+    color: var(--color-text-main);
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+    /* Gold */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    /* Glassy effect */
+    padding: 2.5rem;
+    border-left: 3px solid var(--color-secondary);
+    position: relative;
+}
+
+.icon {
+    color: var(--color-secondary);
+    opacity: 0.3;
+    margin-bottom: 1rem;
+}
+
+.quote {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.author {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,126 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+    background-color: rgba(18, 4, 5, 0.9);
+    /* Dark Burgundy, Translucent */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    /* Subtle Gold Border */
+    transition: all 0.3s ease;
+}
+
+.headerInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.logoImageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    /* Subtle shadow for depth */
+}
+
+.logoImage {
+    object-fit: contain;
+    /* Ensure clean rendering */
+    animation: logoFadeIn 0.6s ease-in-out forwards;
+    opacity: 0;
+    /* Start invisible to avoid flash */
+}
+
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.logoText {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    /* Gold */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.logoTextWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tagline {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+    /* Gold-ish/secondary color */
+    text-transform: lowercase;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: -2px;
+}
+
+.navMenu {
+    display: flex;
+    gap: 2rem;
+}
+
+.navLink {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-secondary);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .navMenu {
+        display: none;
+        /* simple mobile hide for now */
+    }
+}
