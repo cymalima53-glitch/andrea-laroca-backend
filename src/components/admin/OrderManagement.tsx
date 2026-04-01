@@ -42,7 +42,7 @@ export default function OrderManagement() {
     const fetchOrders = async () => {
         if (!accessToken) return;
         try {
-            const res = await fetch('http://localhost:5000/api/admin/orders', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/admin/orders', {
                 headers: { Authorization: `Bearer ${accessToken}` }
             });
             const data = await res.json();
@@ -63,7 +63,7 @@ export default function OrderManagement() {
     const submitPriceUpdate = async () => {
         if (!selectedOrder || !accessToken) return;
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/orders/${selectedOrder.id}/price`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/admin/orders/${selectedOrder.id}/price`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ export default function OrderManagement() {
         if (!confirm('Send invoice email to customer?')) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/orders/${orderId}/invoice`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/admin/orders/${orderId}/invoice`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
@@ -114,7 +114,7 @@ export default function OrderManagement() {
 
         try {
             // Using the general orders API for deletion since we added the DELETE route there
-            const res = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/orders/${orderId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
@@ -154,7 +154,7 @@ export default function OrderManagement() {
 
         try {
             // Get shipping rate from Shippo
-            const res = await fetch('http://localhost:5000/api/shipping/shippo', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/shipping/shippo', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ export default function OrderManagement() {
         
         setCreatingLabel(true);
         try {
-            const res = await fetch('http://localhost:5000/api/shipping/create-label', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/shipping/create-label', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

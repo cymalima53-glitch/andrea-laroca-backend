@@ -41,10 +41,10 @@ export default function AdminOrdersPage() {
             if (activeTab === 'deleted') {
                 // Fetch deleted from both tables, merge them
                 const [wsRes, rtRes] = await Promise.all([
-                    fetch('http://localhost:5000/api/wholesale/orders/deleted', {
+                    fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/wholesale/orders/deleted', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }),
-                    fetch('http://localhost:5000/api/orders/retail/deleted', {
+                    fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/orders/retail/deleted', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     })
                 ]);
@@ -62,8 +62,8 @@ export default function AdminOrdersPage() {
                 setOrders(merged);
             } else {
                 endpoint = activeTab === 'wholesale'
-                    ? 'http://localhost:5000/api/wholesale/orders'
-                    : 'http://localhost:5000/api/orders/retail';
+                    ? (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/wholesale/orders'
+                    : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/orders/retail';
 
                 const res = await fetch(endpoint, {
                     headers: { 'Authorization': `Bearer ${token}` }
@@ -91,8 +91,8 @@ export default function AdminOrdersPage() {
 
         try {
             const endpoint = activeTab === 'wholesale'
-                ? `http://localhost:5000/api/wholesale/orders/${orderId}`
-                : `http://localhost:5000/api/orders/retail/${orderId}`;
+                ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/wholesale/orders/${orderId}`
+                : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/orders/retail/${orderId}`;
 
             const res = await fetch(endpoint, {
                 method: 'DELETE',
@@ -115,8 +115,8 @@ export default function AdminOrdersPage() {
     const handleRestore = async (order: any) => {
         try {
             const endpoint = order._source === 'wholesale'
-                ? `http://localhost:5000/api/wholesale/orders/${order.id}/restore`
-                : `http://localhost:5000/api/orders/retail/${order.id}/restore`;
+                ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/wholesale/orders/${order.id}/restore`
+                : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/orders/retail/${order.id}/restore`;
 
             const res = await fetch(endpoint, {
                 method: 'PATCH',
@@ -140,7 +140,7 @@ export default function AdminOrdersPage() {
         if (!selectedOrder || !quotePrice) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${selectedOrder.id}/quote`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/orders/${selectedOrder.id}/quote`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -168,7 +168,7 @@ export default function AdminOrdersPage() {
         if (!selectedOrderId) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/retail/${selectedOrderId}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/orders/retail/${selectedOrderId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

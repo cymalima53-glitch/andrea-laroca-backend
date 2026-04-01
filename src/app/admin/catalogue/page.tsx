@@ -27,7 +27,7 @@ export default function AdminCataloguePage() {
 
     const fetchItems = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/catalogue');
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/catalogue');
             const data = await res.json();
             setItems(Array.isArray(data) ? data : []);
         } catch (error) {
@@ -42,7 +42,7 @@ export default function AdminCataloguePage() {
     const handleDelete = async (id: string, name: string) => {
         if (!confirm(`Delete "${name}"? This cannot be undone.`)) return;
         try {
-            const res = await fetch(`http://localhost:5000/api/catalogue/${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/catalogue/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${accessToken}` },
             });

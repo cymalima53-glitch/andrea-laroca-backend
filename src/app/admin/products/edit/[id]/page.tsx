@@ -46,7 +46,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
             const { id } = await params;
             setProductId(id);
             try {
-                const res = await fetch(`http://localhost:5000/api/products/${id}`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/products/${id}`);
                 if (!res.ok) throw new Error('Product not found');
                 const data = await res.json();
 
@@ -85,7 +85,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
     const uploadImage = async (file: File): Promise<string> => {
         const fd = new FormData();
         fd.append('image', file);
-        const res = await fetch('http://localhost:5000/api/upload/product', {
+        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/upload/product', {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${token}` },
             body: fd,
@@ -121,7 +121,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
             console.log('All variants (from state):', variants);
             console.log('Saving:', parsedVariants);
 
-            const res = await fetch(`http://localhost:5000/api/products/${productId}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/products/${productId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

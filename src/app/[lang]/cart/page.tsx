@@ -34,7 +34,7 @@ export default function CartPage() {
 
     const fetchCart = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/cart', {
+            const response = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/cart', {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
@@ -57,7 +57,7 @@ export default function CartPage() {
         }
 
         try {
-            await fetch('http://localhost:5000/api/cart/update', {
+            await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/cart/update', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default function CartPage() {
 
     const removeItem = async (itemId: string) => {
         try {
-            await fetch(`http://localhost:5000/api/cart/${itemId}`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/cart/${itemId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`

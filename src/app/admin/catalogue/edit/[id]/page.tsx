@@ -45,7 +45,7 @@ export default function EditCatalogueItemPage({ params }: { params: Promise<{ id
             const { id } = await params;
             setItemId(id);
             try {
-                const res = await fetch(`http://localhost:5000/api/catalogue/${id}`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/catalogue/${id}`);
                 if (!res.ok) throw new Error('Item not found');
                 const data = await res.json();
                 setFormData({
@@ -83,7 +83,7 @@ export default function EditCatalogueItemPage({ params }: { params: Promise<{ id
     const uploadImage = async (file: File): Promise<string> => {
         const fd = new FormData();
         fd.append('image', file);
-        const res = await fetch('http://localhost:5000/api/upload/product', {
+        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/upload/product', {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${accessToken}` },
             body: fd,
@@ -114,7 +114,7 @@ export default function EditCatalogueItemPage({ params }: { params: Promise<{ id
             console.log('All variants (from state):', variants);
             console.log('Saving:', parsedVariants);
 
-            const res = await fetch(`http://localhost:5000/api/catalogue/${itemId}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/catalogue/${itemId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

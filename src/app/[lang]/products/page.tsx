@@ -20,7 +20,7 @@ export default async function RetailProductsPage({ params }: { params: Promise<{
     // Fetch products server-side
     let products: Product[] = [];
     try {
-        const res = await fetch('http://localhost:5000/api/retail/products', {
+        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/retail/products', {
             cache: 'no-store'
         });
         if (res.ok) {

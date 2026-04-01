@@ -21,7 +21,7 @@ function mapCategory(backendCategory: string): Product['category'] {
 
 async function getProducts(): Promise<Product[]> {
     try {
-        const res = await fetch('http://localhost:5000/api/products', { cache: 'no-store' }); // Ensure fresh data
+        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/products', { cache: 'no-store' }); // Ensure fresh data
         if (!res.ok) throw new Error('Failed to fetch products');
         const data = await res.json();
         return data.map((item: any) => ({

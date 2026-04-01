@@ -27,7 +27,7 @@ export default function AdminUsersPage() {
 
     const fetchPendingUsers = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/admin/users/pending', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/admin/users/pending', {
                 headers: { 'Authorization': `Bearer ${accessToken}` }
             });
             if (res.ok) {
@@ -45,7 +45,7 @@ export default function AdminUsersPage() {
         if (!confirm('Are you sure you want to approve this user? They will be notified via email.')) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/users/approve/${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/admin/users/approve/${id}`, {
                 method: 'PUT',
                 headers: { 'Authorization': `Bearer ${accessToken}` }
             });
@@ -65,7 +65,7 @@ export default function AdminUsersPage() {
         if (!confirm('Are you sure you want to REJECT this user? This cannot be undone.')) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/users/reject/${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/admin/users/reject/${id}`, {
                 method: 'PUT',
                 headers: { 'Authorization': `Bearer ${accessToken}` }
             });

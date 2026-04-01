@@ -39,7 +39,7 @@ export default function AddProductPage() {
     const uploadImage = async (file: File): Promise<string> => {
         const fd = new FormData();
         fd.append('image', file);
-        const res = await fetch('http://localhost:5000/api/upload/product', {
+        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/upload/product', {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${token}` },
             body: fd,
@@ -76,7 +76,7 @@ export default function AddProductPage() {
                 .filter((v) => v.size.trim() && v.type.trim())
                 .map((v) => ({ size: v.size.trim(), type: v.type.trim(), price: v.price !== '' ? parseFloat(v.price) : 0 }));
 
-            const res = await fetch('http://localhost:5000/api/products', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

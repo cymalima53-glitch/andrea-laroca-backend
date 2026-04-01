@@ -161,7 +161,7 @@ function StripeCheckoutForm({ items, shippingRate, formData, onFormChange, onSuc
     }, []);
 
     const createOrder = async (paymentIntentId: string) => {
-        const res = await fetch('http://localhost:5000/api/payments/confirm-order', {
+        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/payments/confirm-order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -196,7 +196,7 @@ function StripeCheckoutForm({ items, shippingRate, formData, onFormChange, onSuc
         setCardError('');
 
         try {
-            const intentRes = await fetch('http://localhost:5000/api/payments/create-intent', {
+            const intentRes = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/payments/create-intent', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -282,7 +282,7 @@ function DemoCheckoutForm({ items, shippingRate, formData, onFormChange, onSucce
         e.preventDefault();
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:5000/api/orders/retail', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/orders/retail', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -391,7 +391,7 @@ export default function RetailCheckoutPage() {
         const weight = items.reduce((s, i) => s + i.quantity, 0);
         const originZip = '33101'; // La Rocca origin (Miami, FL) - should come from env/config
 
-        fetch('http://localhost:5000/api/shipping/shippo', {
+        fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/shipping/shippo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

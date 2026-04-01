@@ -28,7 +28,7 @@ export default function AdminDashboard() {
         const fetchStats = async () => {
             if (!accessToken) return;
             try {
-                const res = await fetch('http://localhost:5000/api/admin/dashboard-stats', {
+                const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/admin/dashboard-stats', {
                     headers: { Authorization: `Bearer ${accessToken}` }
                 });
 

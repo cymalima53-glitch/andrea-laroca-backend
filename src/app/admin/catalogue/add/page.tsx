@@ -58,7 +58,7 @@ export default function AddCatalogueItemPage() {
     const uploadImage = async (file: File): Promise<string> => {
         const fd = new FormData();
         fd.append('image', file);
-        const res = await fetch('http://localhost:5000/api/upload/product', {
+        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/upload/product', {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${accessToken}` },
             body: fd,
@@ -106,7 +106,7 @@ export default function AddCatalogueItemPage() {
                 variants: parsedVariants,
             };
 
-            const res = await fetch('http://localhost:5000/api/catalogue', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/catalogue', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

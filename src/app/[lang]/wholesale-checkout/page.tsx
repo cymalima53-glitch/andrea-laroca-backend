@@ -48,7 +48,7 @@ export default function WholesaleCheckoutPage() {
             console.log('📦 Wholesale Order Data:', orderData);
             console.log('📦 Wholesale Items:', wholesaleItems);
 
-            const res = await fetch('http://localhost:5000/api/wholesale/orders', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/wholesale/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

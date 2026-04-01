@@ -24,7 +24,7 @@ export default function PendingUsers() {
     const fetchPendingUsers = async () => {
         try {
             // Corrected path from user snippet to match actual backend route
-            const response = await fetch('http://localhost:5000/api/admin/users/pending', {
+            const response = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/admin/users/pending', {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
@@ -42,7 +42,7 @@ export default function PendingUsers() {
 
     const approve = async (id: string) => {
         try {
-            await fetch(`http://localhost:5000/api/admin/users/approve/${id}`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/admin/users/approve/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
@@ -56,7 +56,7 @@ export default function PendingUsers() {
 
     const disapprove = async (id: string) => {
         try {
-            await fetch(`http://localhost:5000/api/admin/users/reject/${id}`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/admin/users/reject/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`

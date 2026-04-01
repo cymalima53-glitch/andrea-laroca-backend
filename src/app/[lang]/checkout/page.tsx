@@ -65,7 +65,7 @@ export default function CheckoutPage() {
                 headers['Authorization'] = `Bearer ${accessToken}`;
             }
 
-            const res = await fetch('http://localhost:5000/api/orders', {
+            const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/orders', {
                 method: 'POST',
                 headers,
                 body: JSON.stringify(orderData)
