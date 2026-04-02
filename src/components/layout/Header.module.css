@@ -197,16 +197,7 @@
 }
 
 /* ─── Media Queries ─── */
-@media (max-width: 900px) {
-    .navMenu {
-        gap: 1.2rem;
-    }
-    .navLink {
-        font-size: 0.78rem;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .navMenu {
         display: none;
     }
@@ -219,6 +210,16 @@
         display: flex;
     }
 
+    .logoText {
+        font-size: 1.2rem;
+    }
+
+    .tagline {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px) {
     .logoText {
         font-size: 1.1rem;
     }
