@@ -61,6 +61,40 @@ export default async function RetailProductsPage({ params }: { params: Promise<{
                 eyebrow="Retail Shop"
             />
 
+            {/* Guest Checkout Banner */}
+            <div style={{ maxWidth: '1200px', margin: '3rem auto -1rem auto', padding: '0 1.5rem' }}>
+                <div style={{
+                    background: 'linear-gradient(135deg, #1a0a00 0%, #2c1810 100%)',
+                    border: '1px solid rgba(212, 175, 55, 0.4)',
+                    borderRadius: '8px',
+                    padding: '20px 24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '20px',
+                    flexWrap: 'wrap',
+                    textAlign: 'center',
+                    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)'
+                }}>
+                    <span style={{ fontSize: '28px' }}>🛍️</span>
+                    <div style={{ flex: '1 1 auto', minWidth: '250px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <p style={{ 
+                            color: '#d4af37', 
+                            fontWeight: 700, 
+                            margin: '0 0 4px 0', 
+                            fontFamily: 'serif', 
+                            fontSize: 'clamp(1rem, 4vw, 1.25rem)',
+                            letterSpacing: '0.5px'
+                        }}>
+                            Shop freely — No account needed.
+                        </p>
+                        <p style={{ color: '#EAE0D5', margin: 0, fontSize: '0.9rem', opacity: 0.9 }}>
+                            Browse and order as a guest. Sign up only if you want to save your orders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <ProductShowcase
                 products={products}
                 categories={categories}
