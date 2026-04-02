@@ -67,6 +67,12 @@ export default function HeaderClient({ lang, dict }: { lang: string; dict: any }
                 <Link href={`/${lang}/coffee`} className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>{dict.common.nav.coffee}</Link>
                 <Link href={`/${lang}/catalogue`} className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>{dict.common.nav.catalogue}</Link>
                 <Link href={`/${lang}/products`} className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>{dict.common.nav.products}</Link>
+                
+                {/* Mobile Auth Links */}
+                <div className="mt-4 border-t border-[#d4af37]/20 pt-4">
+                    <Link href="/auth/login" className={styles.mobileNavLink} style={{color: '#d4af37'}} onClick={() => setMenuOpen(false)}>Login</Link>
+                    <Link href="/auth/login?tab=register" className={styles.mobileNavLink} style={{color: '#d4af37'}} onClick={() => setMenuOpen(false)}>Join</Link>
+                </div>
             </div>
         </>
     );

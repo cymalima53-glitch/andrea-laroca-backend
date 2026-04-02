@@ -183,15 +183,9 @@
 
     .cartText {
         display: none;
-        /* Hide text on mobile if crowded */
     }
 
     .authSection {
-        padding-left: 10px;
-    }
-
-    .authLink {
-        font-size: 12px;
-        padding: 4px 6px;
+        display: none; /* Hide entirely on mobile header, it will be in hamburger */
     }
 }
